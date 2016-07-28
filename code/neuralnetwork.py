@@ -41,7 +41,6 @@ class Network:
         delta_w, delta_b = self.backPropagation(x,y)
         gradient_weights= [nb+dnb for nb, dnb in zip(gradient_weights, delta_w)]
         gradient_biases= [nw+dnw for nw, dnw in zip(gradient_biases, delta_b)]
-        gradient_weights,gradient_biases=self.backPropagation(data[0],data[1])
         self.weights=[w-learning_rate*gw  for w,gw in zip(self.weights,gradient_weights)]
         self.biases=[b-learning_rate*gb  for b,gb  in zip(self.biases,gradient_biases) ]
 
